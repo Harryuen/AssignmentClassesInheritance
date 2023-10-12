@@ -24,13 +24,14 @@ namespace AssignmentClassesInheritance
         public override string ToString()
         {
             return base.ToString() +
-                $"\nCapacity: {Capacity} cu. ft." +
+                $"Capacity: {Capacity} cu. ft." +
                 $"\nRoom Type: {RoomType}";
         }
     }
 
     public enum RoomType
     {
+        Any,
         Kitchen,
         WorkSite
     }

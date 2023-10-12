@@ -21,11 +21,27 @@ namespace AssignmentClassesInheritance
             this.BatteryVoltage = batteryVoltage;
         }
 
+
+
         public override string ToString()
         {
-            return base.ToString() +
-                $"\nGrade: {Grade}" +
-                $"\nBattery Voltage: {BatteryVoltage} V";
+            string voltageString;
+            switch (BatteryVoltage)
+            {
+                case 18:
+                    voltageString = "Low";
+                    break;
+                case 24:
+                    voltageString = "High";
+                    break;
+                default:
+                    voltageString = "Unknown";
+                    break;
+            }
+
+                    return base.ToString() +
+                $"Grade: {Grade}" +
+                $"\nBattery Voltage: {voltageString}";
         }
     }
 

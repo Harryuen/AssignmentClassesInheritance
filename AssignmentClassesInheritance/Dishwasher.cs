@@ -23,7 +23,7 @@ namespace AssignmentClassesInheritance
         public override string ToString()
         {
             return base.ToString() +
-                $"\nFeature: {Feature}" +
+                $"Feature: {Feature}" +
                 $"\nSound Rating: {SoundRating}";
         }
     }

@@ -383,6 +383,8 @@ namespace AssignmentClassesInheritance
         /// <summary>
         /// Displays microwaves
         /// </summary>
+        /// 
+
         public void DisplayMicrowaves()
         {
             // Display possible options for room type
@@ -397,20 +399,20 @@ namespace AssignmentClassesInheritance
             // Get user input as a string and assign it to a variable
             string roomTypeInput = Console.ReadLine();
 
-            // Create a character variable that holds the room type
-            char roomType;
+            // Create a variable that holds the room type
+            RoomType roomType;
 
             // Determine the room type based on user input
             switch (roomTypeInput)
             {
                 case "0":
-                    roomType = 'A'; // 'A' represents Any
+                    roomType = RoomType.Any;
                     break;
                 case "1":
-                    roomType = 'K'; // 'K' represents Kitchen
+                    roomType = RoomType.Kitchen;
                     break;
                 case "2":
-                    roomType = 'W'; // 'W' represents Work site
+                    roomType = RoomType.WorkSite;
                     break;
                 default:
                     Console.WriteLine("Invalid option.");
@@ -426,15 +428,73 @@ namespace AssignmentClassesInheritance
                 // Check if the current appliance is a microwave
                 if (appliance is Microwave microwave)
                 {
-                    // Test if room type equals 'A' (Any) or matches the current microwave's room type
-                    if (roomType == 'A' || roomType == microwave.RoomType.ToString()[0])
+                    // Test if room type equals RoomType.Any or matches the current microwave's room type
+                    if (roomType == RoomType.Any || roomType == microwave.RoomType)
                     {
                         // Add the current appliance to the list of found microwaves
                         foundMicrowaves.Add(appliance);
                     }
                 }
             }
+
+            // Display found microwaves (up to the maximum number entered)
+            DisplayAppliancesFromList(foundMicrowaves, 0);
         }
+
+
+
+        //public void DisplayMicrowaves()
+        //{
+        //    // Display possible options for room type
+        //    Console.WriteLine("Possible options for room type:");
+        //    Console.WriteLine("0 - Any");
+        //    Console.WriteLine("1 - Kitchen");
+        //    Console.WriteLine("2 - Work site");
+
+        //    // Prompt the user to enter the room type
+        //    Console.Write("Enter room type: ");
+
+        //    // Get user input as a string and assign it to a variable
+        //    string roomTypeInput = Console.ReadLine();
+
+        //    // Create a character variable that holds the room type
+        //    char roomType;
+
+        //    // Determine the room type based on user input
+        //    switch (roomTypeInput)
+        //    {
+        //        case "0":
+        //            roomType = 'A'; // 'A' represents Any
+        //            break;
+        //        case "1":
+        //            roomType = 'K'; // 'K' represents Kitchen
+        //            break;
+        //        case "2":
+        //            roomType = 'W'; // 'W' represents Work site
+        //            break;
+        //        default:
+        //            Console.WriteLine("Invalid option.");
+        //            return; // Return to the previous method
+        //    }
+
+        //    // Create a list to hold found Appliance objects
+        //    List<Appliance> foundMicrowaves = new List<Appliance>();
+
+        //    // Loop through Appliances
+        //    foreach (var appliance in appliances)
+        //    {
+        //        // Check if the current appliance is a microwave
+        //        if (appliance is Microwave microwave)
+        //        {
+        //            // Test if room type equals 'A' (Any) or matches the current microwave's room type
+        //            if (roomType == 'A' || roomType == microwave.RoomType.ToString()[0])
+        //            {
+        //                // Add the current appliance to the list of found microwaves
+        //                foundMicrowaves.Add(appliance);
+        //            }
+        //        }
+        //    }
+        //}
         // Display found microwaves
 
 
