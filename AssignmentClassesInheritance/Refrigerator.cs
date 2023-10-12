@@ -42,35 +42,30 @@ namespace AssignmentClassesInheritance
         }
 
 
-
         public override string ToString()
         {
-            //if(NumberOfDoors == 2)
-            //{
-            //    return base.ToString() +
-            //    $"\nNumber of Doors: Double Door" +
-            //    $"\nHeight: {Height} inches" +
-            //    $"\nWidth: {Width} inches";
-            //}
-            //else if (NumberOfDoors == 3)
-            //{
-            //    return base.ToString() +
-            //    $"\nNumber of Doors: Three Door" +
-            //    $"\nHeight: {Height} inches" +
-            //    $"\nWidth: {Width} inches";
-            //}
-            //else if (NumberOfDoors == 4)
-            //{
-            //    return base.ToString() +
-            //    $"\nNumber of Doors: Four Door" +
-            //    $"\nHeight: {Height} inches" +
-            //    $"\nWidth: {Width} inches";
-            //}
+            string doorsString;
+            switch (NumberOfDoors)
+            {
+                case 2:
+                    doorsString = "Double Doors";
+                    break;
+                case 3:
+                    doorsString = "Three Doors";
+                    break;
+                case 4:
+                    doorsString = "Four Doors";
+                    break;
+                default:
+                    doorsString = "Unknown";
+                    break;
+            }
             return base.ToString() +
-                $"\nNumber of Doors: {NumberOfDoors}" +
+                $"Number of Doors: {doorsString}" +
                 $"\nHeight: {Height} inches" +
                 $"\nWidth: {Width} inches";
         }
+
     }
 
 

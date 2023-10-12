@@ -49,6 +49,18 @@ namespace AssignmentClassesInheritance
             Wattage = wattage;
         }
 
+        public void Checkout()
+        {
+            if (Quantity > 0)
+            {
+                Quantity--;
+                Console.WriteLine($"{Brand} {GetType().Name} has been checked out.");
+            }
+            else
+            {
+                Console.WriteLine($"Sorry, there are no more {Brand} {GetType().Name} available.");
+            }
+        }
 
         public override string ToString()
         {

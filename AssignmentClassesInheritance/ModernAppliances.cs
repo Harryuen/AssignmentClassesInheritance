@@ -147,55 +147,61 @@ namespace AssignmentClassesInheritance
         /// </summary>
         public void Checkout()
         {
+            // Write "Enter the item number of an appliance: "
             Console.Write("Enter the item number of an appliance: ");
 
-            // Create a long variable to hold the item number
-            long itemNumber;
+            // Get user input as a string and assign it to a variable.
+            string itemNumberInput = Console.ReadLine();
 
-            // Get user input as a string and try to convert it to a long
-            if (long.TryParse(Console.ReadLine(), out itemNumber))
+            // Convert user input from string to long and store it as the item number variable.
+            if (long.TryParse(itemNumberInput, out long itemNumber))
             {
-                // Create a variable to hold the found appliance
+                // Create 'foundAppliance' variable to hold an appliance with the given item number.
                 Appliance foundAppliance = null;
 
-                // Loop through Appliances to find the matching item number
+                // Loop through Appliances
                 foreach (var appliance in appliances)
                 {
+                    // Test if the appliance item number equals the entered item number.
                     if (appliance.ItemNumber == itemNumber)
                     {
+                        // Assign appliance in the list to the foundAppliance variable.
+
                         foundAppliance = appliance;
-                        break; // Break out of the loop since we found what we need
+
+                        // Break out of the loop (since we found what we need).
+                        break;
                     }
                 }
 
-                // Check if the appliance was not found (foundAppliance is null)
+                // Test if appliance was not found (foundAppliance is null).
                 if (foundAppliance == null)
                 {
+                    // Write "No appliances found with that item number."
                     Console.WriteLine("No appliances found with that item number.");
                 }
                 else
                 {
-                    // Check if the found appliance is available
-                    if (foundAppliance.IsAvailable)
+                    // Test if found appliance is available.
+                    if (foundAppliance.Quantity > 0)
                     {
-                        // Perform the checkout operation (you can define this logic)
-                        // For example, you can reduce the quantity by 1 or update its availability status.
+                        // Checkout found appliance.
+                        foundAppliance.Checkout();
 
-                        // Example logic:
-                        foundAppliance.Quantity--; // Reduce the quantity by 1
-
-                        Console.WriteLine("Appliance has been checked out."); 
-                        Console.WriteLine($"Updated Quantity: {foundAppliance.Quantity}");
+                        // Write "Appliance has been checked out."
+                        Console.WriteLine("Appliance has been checked out.");
                     }
                     else
                     {
+                        // Write "The appliance is not available to be checked out."
                         Console.WriteLine("The appliance is not available to be checked out.");
                     }
                 }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid item number.");
+                // Write "Invalid input for item number."
+                Console.WriteLine("Invalid input for item number.");
             }
         }
 
